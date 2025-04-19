@@ -1,0 +1,16 @@
+# IDE
+.idea/
+*.iml
+
+# Compilados
+*.class
+out/
+target/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configs locais
+*.env
+
