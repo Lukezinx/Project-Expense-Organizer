@@ -12,9 +12,9 @@ public class Menu {
             showOptions();
             option = sc.nextInt();
             processOption(option);
-            break;
 
-        } while(option == 0);
+
+        } while(option != 0);
     }
 
     private void showOptions() {
@@ -30,6 +30,7 @@ public class Menu {
             case 1:
                 manage.addExpense();
                 System.out.println("Expense Add!!");
+                menu();
                 break;
 
             case 2:
