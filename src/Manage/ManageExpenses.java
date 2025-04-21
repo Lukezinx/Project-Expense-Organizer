@@ -3,6 +3,7 @@ import expenses.Expense;
 import java.util.*;
 
 public class ManageExpenses {
+    OrganizedList OL = new OrganizedList();
     Scanner sc = new Scanner(System.in);
     List<Expense> expensive = new ArrayList<>();
 
@@ -34,21 +35,27 @@ public class ManageExpenses {
         do{
             System.out.println("[1] - yes");
             System.out.println("[2] - no");
-            option =sc.nextInt();
+            option = sc.nextInt();
             break;
         } while(option != 2);
 
         if (option == 1) {
-            filterByCategory();
+            OrganizedList();
         } else {
             System.out.println("invalid option");
         }
         // ate aqui.
     }
+    // ver
+    public void OrganizedList() {
+        OL.compareTo(null);
+
+    }
+
+
 
     public void filterByCategory() {
-
-
+        System.out.println("funcionando");
 
     }
 
