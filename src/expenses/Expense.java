@@ -8,11 +8,14 @@ public class Expense {
     private String category;
 //    private LocalDateTime date;
 
+    //Colocar Id e data no futuro.
+    //private static Integer id = 0;
 
     public Expense(Double value, String description, String category) {
         this.value = value;
         this.description = description;
         this.category = category;
+
     }
 
     public Double getValue() {
@@ -39,14 +42,6 @@ public class Expense {
         this.category = category;
     }
 
-//    public LocalDateTime getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(LocalDateTime date) {
-//        this.date = date;
-//    }
-
 
     @Override
     public String toString() {
@@ -56,4 +51,5 @@ public class Expense {
                 ", category='" + category + '\'' +
                 '}';
     }
+
 }
