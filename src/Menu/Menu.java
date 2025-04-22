@@ -22,6 +22,8 @@ public class Menu {
         System.out.println();
         System.out.println("[1] - Add expenses");
         System.out.println("[2] - List expenses");
+        System.out.println("[3] - calculate total value in list");
+
         System.out.println("[0] - Exit");
     }
 
@@ -35,6 +37,25 @@ public class Menu {
 
             case 2:
                 manage.listExpense();
+                System.out.println();
+                System.out.println("do you want to sort the list?");
+                int chose;
+                do{
+                    System.out.println("[1] - yes");
+                    System.out.println("[2] - no");
+                    chose = sc.nextInt();
+                    break;
+                } while(chose != 2);
+
+                if (chose == 1) {
+                    manage.OrganizedList();
+                } else {
+                    System.out.println("invalid option");
+                }
+                break;
+
+            case 3:
+                manage.calculateTotal();
                 break;
 
             case 0:
