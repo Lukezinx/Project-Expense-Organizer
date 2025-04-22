@@ -2,11 +2,32 @@ package Manage;
 
 import expenses.Expense;
 
-public class OrganizedList implements Comparable<Expense> {
+import java.util.Comparator;
+import java.util.List;
 
-    //ver
-    @Override
-    public int compareTo(Expense o) {
-        return 0;
+public class OrganizedList  {
+
+    public void sort(List<Expense> list, int typeOrdanation) {
+        switch (typeOrdanation) {
+            case 1:
+                list.sort(Comparator.comparing(Expense::getValue));
+                break;
+            case 2:
+                list.sort(Comparator.comparing(Expense::getDescription));
+                break;
+            case 3:
+                list.sort(Comparator.comparing(Expense::getCategory));
+                break;
+            default:
+                System.out.println("Invalid option.");
+                return;
+        }
+
+        System.out.println("Sorted list:");
+        for (Expense e : list) {
+            System.out.println(e);
+        }
     }
+
+
 }

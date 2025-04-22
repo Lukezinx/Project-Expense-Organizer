@@ -3,7 +3,7 @@ import expenses.Expense;
 import java.util.*;
 
 public class ManageExpenses {
-    OrganizedList OL = new OrganizedList();
+
     Scanner sc = new Scanner(System.in);
     List<Expense> expensive = new ArrayList<>();
 
@@ -25,33 +25,26 @@ public class ManageExpenses {
         expensive.add(expense);
     }
 
+
+
     public void listExpense() {
         System.out.println("Printing the list, please wait.");
         System.out.println(expensive);
-
-        // acho que nao deveria esta aqui, mas sim na classe Menu.
-        System.out.println("do you want to sort the list?");
-        int option;
-        do{
-            System.out.println("[1] - yes");
-            System.out.println("[2] - no");
-            option = sc.nextInt();
-            break;
-        } while(option != 2);
-
-        if (option == 1) {
-            OrganizedList();
-        } else {
-            System.out.println("invalid option");
-        }
-        // ate aqui.
     }
-    // ver
+
+
     public void OrganizedList() {
-        OL.compareTo(null);
+        System.out.println("Sort by:");
+        System.out.println("[1] Value");
+        System.out.println("[2] Description");
+        System.out.println("[3] Category");
 
+        int choice = sc.nextInt();
+        sc.nextLine();
+
+        OrganizedList organization = new OrganizedList();
+        organization.sort(expensive, choice);
     }
-
 
 
     public void filterByCategory() {
@@ -60,8 +53,15 @@ public class ManageExpenses {
     }
 
     public void calculateTotal(){
-        System.out.println("Funcionand");
-    }
+        System.out.println("Teste");
+        Double total;
+        total = 0.0;
+        for(Expense e : expensive){
+            System.out.println("Teste2");
+            total += e.getValue();
+        }
+        // rever depois
 
+    }
 
 }
