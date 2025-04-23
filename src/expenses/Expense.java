@@ -1,11 +1,12 @@
 package expenses;
 
-import java.time.LocalDateTime;
+
+import java.util.Objects;
 
 public class Expense {
-    private Double value;
-    private String description;
-    private String category;
+    private  Double value;
+    private  String description;
+    private  String category;
 //    private LocalDateTime date;
 
     //Colocar Id e data no futuro.
@@ -22,34 +23,31 @@ public class Expense {
         return value;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
-    }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Expense expense = (Expense) o;
+        return Objects.equals(value, expense.value) && Objects.equals(description, expense.description) && Objects.equals(category, expense.category);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, description, category);
+    }
 
     @Override
     public String toString() {
-        return "Expense{" +
-                "value=" + value +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                '}';
+        return String.format("Description: %-15s | Category: %-10s | Value: R$ %.2f", description, category, value);
     }
 
 }
