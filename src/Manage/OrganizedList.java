@@ -7,8 +7,8 @@ import java.util.List;
 
 public class OrganizedList  {
 
-    public void sort(List<Expense> list, int typeOrdanation) {
-        switch (typeOrdanation) {
+    public void sort(List<Expense> list, int sortType) {
+        switch (sortType) {
             case 1:
                 list.sort(Comparator.comparing(Expense::getValue));
                 break;
