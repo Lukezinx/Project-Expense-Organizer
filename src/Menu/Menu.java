@@ -23,6 +23,8 @@ public class Menu {
         System.out.println("[1] - Add expenses");
         System.out.println("[2] - List expenses");
         System.out.println("[3] - calculate total value in list");
+        System.out.println("[4] - filter by category");
+
 
         System.out.println("[0] - Exit");
     }
@@ -32,7 +34,6 @@ public class Menu {
             case 1:
                 manage.addExpense();
                 System.out.println("Expense Add!!");
-                menu();
                 break;
 
             case 2:
@@ -40,7 +41,8 @@ public class Menu {
                 System.out.println();
                 System.out.println("do you want to sort the list?");
                 int chose;
-                do{
+
+                do {
                     System.out.println("[1] - yes");
                     System.out.println("[2] - no");
                     chose = sc.nextInt();
@@ -48,7 +50,7 @@ public class Menu {
                 } while(chose != 2);
 
                 if (chose == 1) {
-                    manage.OrganizedList();
+                    manage.organizedList();
                 } else {
                     System.out.println("invalid option");
                 }
@@ -56,6 +58,10 @@ public class Menu {
 
             case 3:
                 manage.calculateTotal();
+                break;
+
+            case 4:
+                manage.filterByCategory();
                 break;
 
             case 0:
