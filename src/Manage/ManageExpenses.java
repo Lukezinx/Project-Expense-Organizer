@@ -8,11 +8,19 @@ public class ManageExpenses {
     List<Expense> expensive = new ArrayList<>();
 
     public void addExpense(){
+        Double value = null;
         System.out.println("Welcome to the area to add expenses");
         System.out.println("please write the value: ");
 
-        Double value = sc.nextDouble();
-        sc.nextLine();
+        try {
+            value = sc.nextDouble();
+            sc.nextLine();
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Invalid value. Please enter a number.");
+            sc.nextLine();
+        }
+
 
         System.out.println("write the description: ");
 
@@ -25,43 +33,58 @@ public class ManageExpenses {
         expensive.add(expense);
     }
 
-
-
     public void listExpense() {
         System.out.println("Printing the list, please wait.");
         System.out.println(expensive);
     }
 
 
-    public void OrganizedList() {
+    public void organizedList() {
+        int choice = 0;
         System.out.println("Sort by:");
         System.out.println("[1] Value");
         System.out.println("[2] Description");
         System.out.println("[3] Category");
 
-        int choice = sc.nextInt();
-        sc.nextLine();
-
+        try {
+            choice = sc.nextInt();
+            sc.nextLine();
+        }
+        catch (InputMismatchException e ){
+            System.out.println("Invalid value. Please enter a number.");
+            sc.nextLine();
+        }
         OrganizedList organization = new OrganizedList();
         organization.sort(expensive, choice);
     }
 
 
     public void filterByCategory() {
-        System.out.println("funcionando");
+        boolean found = false;
+        System.out.println("write the category name");
+        String categoryName = sc.nextLine();
+        for(Expense e : expensive){
+            if(e.getCategory().equalsIgnoreCase(categoryName)){
+                System.out.println(e);
+                found = true;
+            }
+
+        }
+
+        if (!found) {
+            System.out.println("no categories found!");
+        }
 
     }
 
     public void calculateTotal(){
-        System.out.println("Teste");
         Double total;
         total = 0.0;
         for(Expense e : expensive){
-            System.out.println("Teste2");
             total += e.getValue();
         }
-        // rever depois
 
+        System.out.printf("Total value: %.2f %n",total);
     }
 
 }
